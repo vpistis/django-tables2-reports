@@ -78,6 +78,7 @@ class UnicodeWriter:
         self.stream.write(data)
         # empty queue
         self.queue.truncate(0)
+        self.queue.seek(0)
 
 
 class TableReport(tables.Table):
