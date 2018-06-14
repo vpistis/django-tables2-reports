@@ -15,9 +15,11 @@
 # along with this software.  If not, see <http://www.gnu.org/licenses/>.
 
 from django_tables2_reports.utils import create_report_http_response, REQUEST_VARIABLE, REPORT_CONTENT_TYPES
+from django.utils.deprecation import MiddlewareMixin
 
 
-class TableReportMiddleware(object):
+
+class TableReportMiddleware(MiddlewareMixin):
 
     def process_response(self, request, response):
         table_to_report = getattr(request, REQUEST_VARIABLE, None)
